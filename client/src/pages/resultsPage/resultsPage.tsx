@@ -62,6 +62,8 @@ const ResultsPage: React.FC = () => {
   });
 
   const handlePageChange = async (event: React.ChangeEvent<unknown>, page: number) => {
+    event.preventDefault();
+
     if (lastSearchParams) {
       setCurrentPage(page);
       try {
@@ -166,29 +168,6 @@ const ResultsPage: React.FC = () => {
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Вакансии');
     XLSX.writeFile(wb, `vacancies_${new Date().toISOString().split('T')[0]}.xlsx`);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const formatSalary = (salary: Vacancy['salary']) => {
-    if (!salary) return '-';
-    
-    const { from, to, currency, gross } = salary;
-    let result = '';
-    
-    if (from && to) {
-      result = `${from.toLocaleString()} - ${to.toLocaleString()}`;
-    } else if (from) {
-      result = `от ${from.toLocaleString()}`;
-    } else if (to) {
-      result = `до ${to.toLocaleString()}`;
-    } else {
-      return '-';
-    }
-    
-    result += ` ${currency}`;
-    result += gross ? ' (gross)' : ' (net)';
-    
-    return result;
   };
 
   const formatDate = (dateString: string) => {
