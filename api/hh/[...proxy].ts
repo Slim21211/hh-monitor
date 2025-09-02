@@ -15,9 +15,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       data: req.body,
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+        'Referer': 'https://hh.ru/',
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     });
 
     res.status(200).json(response.data);
