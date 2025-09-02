@@ -2,7 +2,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 // Используем наш Express прокси-сервер
-const API_BASE = 'http://localhost:3001/api/hh';
+const API_BASE = '/api/hh';
 
 export interface VacancySearchParams {
   text: string;
