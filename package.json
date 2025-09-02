@@ -1,5 +1,9 @@
 {
   "name": "hh-monitor-root",
   "private": true,
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "dependencies": {
+    "@vercel/node": "^5.3.17",
+    "axios": "^1.11.0"
+  }
 }
