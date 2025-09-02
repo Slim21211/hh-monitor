@@ -1,0 +1,35 @@
+.paper {
+  padding: 24px;
+  margin: 24px;
+}
+
+.title {
+  margin-bottom: 24px !important;
+  color: rgb(91, 71, 66); /* CMYK: 30 72 74 80 */
+  font-weight: 600 !important;
+}
+
+.submitContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.submitButton {
+  background-color: rgb(255, 140, 0) !important; /* CMYK: 0 65 100 0 */
+  padding: 12px 48px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+
+.submitButton:hover {
+  background-color: rgb(230, 126, 0) !important;
+}
+
+.checkbox {
+  color: rgb(255, 140, 0) !important;
+}
+
+.checkbox.Mui-checked {
+  color: rgb(255, 140, 0) !important;
+}

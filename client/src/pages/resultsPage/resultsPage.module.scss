@@ -1,0 +1,113 @@
+.paper {
+  padding: 24px;
+  margin: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.title {
+  color: rgb(91, 71, 66); /* CMYK: 30 72 74 80 */
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.perPageSelect {
+  min-width: 120px;
+}
+
+.countChip {
+  background-color: rgb(255, 140, 0) !important; /* CMYK: 0 65 100 0 */
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.exportButton {
+  background-color: rgb(255, 140, 0) !important; /* CMYK: 0 65 100 0 */
+  font-weight: 600 !important;
+}
+
+.exportButton:hover {
+  background-color: rgb(230, 126, 0) !important;
+}
+
+.tableContainer {
+  max-height: calc(100vh - 300px);
+  overflow: auto;
+}
+
+.headerCell {
+  background-color: rgb(249, 249, 249) !important;
+  font-weight: 600 !important;
+  color: rgb(91, 71, 66) !important; /* CMYK: 30 72 74 80 */
+  border-bottom: 2px solid rgb(255, 140, 0) !important; /* CMYK: 0 65 100 0 */
+}
+
+.tableRow:hover {
+  background-color: rgba(255, 140, 0, 0.05) !important;
+}
+
+.vacancyName {
+  font-weight: 500 !important;
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+.vacancyLink {
+  color: rgb(255, 140, 0) !important; /* CMYK: 0 65 100 0 */
+  text-decoration: none !important;
+  font-weight: 500 !important;
+}
+
+.vacancyLink:hover {
+  text-decoration: underline !important;
+}
+
+.noResults {
+  text-align: center;
+  color: rgb(91, 71, 66); /* CMYK: 30 72 74 80 */
+  margin-bottom: 16px !important;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.paginationInfo {
+  display: flex;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .MuiPaginationItem-root.Mui-selected {
+  background-color: rgb(255, 140, 0) !important; /* CMYK: 0 65 100 0 */
+  color: white !important;
+}
+
+.pagination .MuiPaginationItem-root:hover {
+  background-color: rgba(255, 140, 0, 0.1) !important;
+}
