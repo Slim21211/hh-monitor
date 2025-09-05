@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export interface Env {
   USER_AGENT: string;
   REFERER: string;
@@ -11,35 +9,33 @@ export default {
       const url = new URL(req.url);
       const hhPath = url.pathname.replace('/hh/', '');
       const hhUrl = `https://api.hh.ru/${hhPath}`;
-      const params = Object.fromEntries(url.searchParams);
+      const params = url.searchParams.toString();
+      const finalUrl = params ? `${hhUrl}?${params}` : hhUrl;
 
-      let data;
-      if (req.method !== 'GET' && req.method !== 'HEAD') {
-        data = await req.json().catch(() => undefined);
-      }
-
-      const response = await axios({
+      const init: RequestInit = {
         method: req.method,
-        url: hhUrl,
         headers: {
           'User-Agent': env.USER_AGENT,
           'Referer': env.REFERER,
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
-        params,
-        data,
-      });
+      };
 
-      return new Response(JSON.stringify(response.data), {
-        status: 200,
+      if (req.method !== 'GET' && req.method !== 'HEAD') {
+        init.body = await req.text(); // fetch ожидает string или ReadableStream
+      }
+
+      const response = await fetch(finalUrl, init);
+      const data = await response.json();
+
+      return new Response(JSON.stringify(data), {
+        status: response.status,
         headers: { 'Content-Type': 'application/json' },
       });
     } catch (err: any) {
-      const status = err.response?.status || 500;
-      const data = err.response?.data || { message: err.message };
-      return new Response(JSON.stringify(data), {
-        status,
+      return new Response(JSON.stringify({ message: err.message }), {
+        status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
     }
