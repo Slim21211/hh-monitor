@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// Используем наш Express прокси-сервер
-const API_BASE = '/api/hh';
+// Продакшн URL Cloudflare Worker
+const API_BASE = 'https://hh-proxy.v-g-davydoff.workers.dev/hh';
 
 export interface VacancySearchParams {
   text: string;
@@ -32,35 +32,14 @@ export interface VacancySearchParams {
 export interface Vacancy {
   id: string;
   name: string;
-  area: {
-    id: string;
-    name: string;
-  };
-  salary: {
-    from: number | null;
-    to: number | null;
-    currency: string;
-    gross: boolean;
-  } | null;
-  employer: {
-    id: string;
-    name: string;
-    alternate_url: string;
-  };
+  area: { id: string; name: string };
+  salary: { from: number | null; to: number | null; currency: string; gross: boolean } | null;
+  employer: { id: string; name: string; alternate_url: string };
   published_at: string;
   alternate_url: string;
-  experience: {
-    id: string;
-    name: string;
-  };
-  schedule: {
-    id: string;
-    name: string;
-  };
-  work_schedule_by_days: Array<{
-    id: string;
-    name: string;
-  }>;
+  experience: { id: string; name: string };
+  schedule: { id: string; name: string };
+  work_schedule_by_days: Array<{ id: string; name: string }>;
 }
 
 export interface VacancySearchResponse {

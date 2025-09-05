@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hh-proxy",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-05",
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "USER_AGENT": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) HeadHunterApp",
+    "REFERER": "https://hh.ru"
+  }
+}
